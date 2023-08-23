@@ -195,6 +195,9 @@ class PatchEmbed(BaseModule):
 
         print(f"[mmseg/models/utils/embed.py forward] shape of x: {x.shape}")
 
+        if self.norm is not None:
+            x = self.norm(x)
+
         if self.adap_padding:
             x = self.adap_padding(x)
 
@@ -204,8 +207,8 @@ class PatchEmbed(BaseModule):
 
         print(f"[mmseg/models/utils/embed.py forward] shape of x: {x.shape}")
 
-        if self.norm is not None:
-            x = self.norm(x)
+        # if self.norm is not None:
+        #     x = self.norm(x)
         return x, out_size
 
 
