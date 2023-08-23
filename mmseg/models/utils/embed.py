@@ -193,6 +193,10 @@ class PatchEmbed(BaseModule):
                     (out_h, out_w).
         """
 
+        print(f"[mmseg/models/utils/embed.py forward] shape of x: {x.shape}")
+
+        print(f"[mmseg/models/utils/embed.py forward] x: {x}")
+
         if self.adap_padding:
             x = self.adap_padding(x)
 
