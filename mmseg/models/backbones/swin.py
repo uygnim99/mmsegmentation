@@ -357,8 +357,11 @@ class SwinBlock(BaseModule):
     def forward(self, x, hw_shape):
 
         def _inner_forward(x):
+
+            print(
+                f"[mmseg/models/backbones/swin.py forward _inner_forward] shape of x: {x.shape}")
             identity = x
-            # x = self.norm1(x)
+            x = self.norm1(x)
             x = self.attn(x, hw_shape)
 
             x = x + identity
