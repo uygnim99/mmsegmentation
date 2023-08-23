@@ -193,9 +193,7 @@ class PatchEmbed(BaseModule):
                     (out_h, out_w).
         """
 
-        print(f"[mmseg/models/utils/embed.py forward] shape of x: {x.shape}")
-
-        print(f"[mmseg/models/utils/embed.py forward] x: {x}")
+        # print(f"[mmseg/models/utils/embed.py forward] shape of x: {x.shape}")
 
         if self.adap_padding:
             x = self.adap_padding(x)
@@ -203,8 +201,11 @@ class PatchEmbed(BaseModule):
         x = self.projection(x)
         out_size = (x.shape[2], x.shape[3])
         x = x.flatten(2).transpose(1, 2)
-        if self.norm is not None:
-            x = self.norm(x)
+
+        # print(f"[mmseg/models/utils/embed.py forward] shape of x: {x.shape}")
+
+        # if self.norm is not None:
+        #     x = self.norm(x)
         return x, out_size
 
 
