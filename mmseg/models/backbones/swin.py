@@ -358,7 +358,7 @@ class SwinBlock(BaseModule):
 
         def _inner_forward(x):
             identity = x
-            x = self.norm1(x)
+            # x = self.norm1(x)
             x = self.attn(x, hw_shape)
 
             x = x + identity
